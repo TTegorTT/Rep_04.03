@@ -1,0 +1,40 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using Test_04._03.Classes;
+using Test_04._03.Windows;
+
+namespace Test_04._03
+{
+    /// <summary>
+    /// Логика взаимодействия для MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
+    {
+        public MainWindow()
+        {
+            InitializeComponent();
+            FIO.Text = CurrentUser.Name;
+            Information.Text = CurrentUser.Role;
+        }
+
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+            CurrentUser.Logout();
+            LoginWindows loginWindows = new LoginWindows();
+            loginWindows.Show();
+            Close();
+        }
+    }
+}
